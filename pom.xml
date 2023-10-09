@@ -44,14 +44,14 @@
 						<connectedAppClientId>${env.CONNECTEDAPP_CLIENT_ID}</connectedAppClientId>
 						<connectedAppClientSecret>{env.CONNECTEDAPP_CLIENT_SECRET}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
-						<applicationName>${project.artifactId}-v1-${mule.env}</applicationName>
+						<applicationName>${project.artifactId}-v1-${env.MULE_ENV}</applicationName>
 						<environment>Dev</environment>
 						<region>us-east-2</region>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<mule.env>${mule.env}</mule.env>
+							<mule.env>${env.MULE_ENV}</mule.env>
 							<encryption.key>${env.ENCRYPTIO_KEY}</encryption.key>
 							<anypoint.platform.client_id>${env.ENV_CLIENT_ID}</anypoint.platform.client_id>
 							<anypoint.platform.client_secret>${env.ENV_CLIENT_SECRET}</anypoint.platform.client_secret>
