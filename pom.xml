@@ -42,7 +42,7 @@
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.4.0</muleVersion>
 						<connectedAppClientId>${env.CONNECTEDAPP_CLIENT_ID}</connectedAppClientId>
-						<connectedAppClientSecret>{env.CONNECTEDAPP_CLIENT_SECRET}</connectedAppClientSecret>
+						<connectedAppClientSecret>${env.CONNECTEDAPP_CLIENT_SECRET}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<applicationName>${project.artifactId}-v1-${env.MULE_ENV}</applicationName>
 						<environment>Dev</environment>
