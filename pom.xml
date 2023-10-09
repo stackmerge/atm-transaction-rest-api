@@ -41,20 +41,20 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.4.0</muleVersion>
-						<connectedAppClientId>06e4e42333f04425b861e7b15a536661</connectedAppClientId>
-						<connectedAppClientSecret>1e0cbAB56f91457D902541B80Ad2a726</connectedAppClientSecret>
+						<connectedAppClientId>${env.CONNECTEDAPP_CLIENT_ID}</connectedAppClientId>
+						<connectedAppClientSecret>{env.CONNECTEDAPP_CLIENT_SECRET}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
-						<applicationName>${project.artifactId}-v1-dev</applicationName>
+						<applicationName>${project.artifactId}-v1-${env.MULE_ENV}</applicationName>
 						<environment>Dev</environment>
 						<region>us-east-2</region>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<mule.env>dev</mule.env>
-							<encryption.key>mule1234</encryption.key>
-							<anypoint.platform.client_id>221e0667c8d948229a529b6d60376fa7</anypoint.platform.client_id>
-							<anypoint.platform.client_secret>Aa19aAa497b44021a3Af94fFFd81715D</anypoint.platform.client_secret>
+							<mule.env>${env.MULE_ENV}</mule.env>
+							<encryption.key>${env.ENCRYPTIO_KEY}</encryption.key>
+							<anypoint.platform.client_id>${env.ENV_CLIENT_ID}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${env.ENV_CLIENT_SECRET}</anypoint.platform.client_secret>
 						</properties>
 					</cloudHubDeployment>
 				</configuration>
