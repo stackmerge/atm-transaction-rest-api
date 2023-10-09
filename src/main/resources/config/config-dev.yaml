@@ -1,0 +1,9 @@
+db:
+  username: "root"
+  password: "mDfc0FNIVzq7VgXAKD0L"
+  host: "containers-us-west-58.railway.app"
+  port: "6948"
+  database: "railway" 
+  
+api:
+  id: "18998210"

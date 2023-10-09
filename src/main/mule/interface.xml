@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd ">
+    <flow name="atm-transaction-rest-api-main">
+        <http:listener config-ref="atm-transaction-rest-api-httpListenerConfig" path="/api/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="atm-transaction-rest-api-config" />
+    </flow>
+    <flow name="get:\accounts\(accountNum):atm-transaction-rest-api-config">
+        <flow-ref doc:name="Flow Reference" doc:id="ad1da377-da9c-42ec-8f70-b059e9b1d6f7" name="getAccountByIdFlow" />
+    </flow>
+    <flow name="post:\accounts:application\json:atm-transaction-rest-api-config">
+        <flow-ref doc:name="Flow Reference" doc:id="a62652bd-b979-4dc9-97db-8b6b8ec9ad90" name="createAccountsFlow" />
+    </flow>
+    <flow name="post:\accounts\(accountNum)\checkBalance:application\json:atm-transaction-rest-api-config">
+        <flow-ref doc:name="Flow Reference" doc:id="ee2c96a0-49bd-42a5-8e82-945beb09835f" name="checkBalanceByAccountNumFlow" />
+    </flow>
+    <flow name="post:\accounts\(accountNum)\credit:application\json:atm-transaction-rest-api-config">
+        <flow-ref doc:name="Flow Reference" doc:id="b6b73865-a8a0-4b5c-baa2-53f705f8df84" name="creditBalanceToAccountFlow" />
+    </flow>
+    <flow name="post:\accounts\(accountNum)\debit:application\json:atm-transaction-rest-api-config">
+        <flow-ref doc:name="Flow Reference" doc:id="5eeaaa4a-cd65-420c-9cf9-7ba189ebca90" name="debitAmountFromAccountFlow" />
+    </flow>
+    <flow name="post:\accounts\(accountNum)\unblock:application\json:atm-transaction-rest-api-config">
+        <flow-ref doc:name="Flow Reference" doc:id="4082d977-587d-4d51-8311-ce07f0d5d0e4" name="unblockAccountFlow" />
+    </flow>
+    <flow name="get:\ping:atm-transaction-rest-api-config">
+		<flow-ref doc:name="Flow Reference" doc:id="627c8ca1-2afc-4bdf-a250-2434d6c1205c" name="health-checkFlow"/>
+    </flow>
+</mule>
