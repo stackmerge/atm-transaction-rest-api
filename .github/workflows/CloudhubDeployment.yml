@@ -29,4 +29,4 @@ jobs:
         cache: maven
         
     - name: Build And Deploy with Maven
-      run: mvn clean deploy -DmuleDeploy --file pom.xml
+      run: mvn clean deploy -DmuleDeploy --file pom.xml -s settings.xml
