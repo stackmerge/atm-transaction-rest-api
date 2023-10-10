@@ -2,7 +2,7 @@
 <settings>
 	<servers>
 		<server>
-			<id>anypoint-exchange-v3</id>
+			<id>connectedapp</id>
 			<username>~~~Client~~~</username>
 			<password>${env.CONNECTEDAPP_CLIENT_ID}~?~${env.CONNECTEDAPP_CLIENT_SECRET}</password>
 		</server>
