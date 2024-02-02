@@ -28,6 +28,4 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - run:  |
-        echo "##vso[task.setvariable variable=POM_ARTIFACTID]$(mvn help:evaluate -Dexpression=project.artiffactId -q -DforceStdout)"
-        displayName: 'Get artifact id from pom.xml'
+    - run: mvn build-helper:parse-version validate -DbumpPatch -DgenerateBackupPoms=false -s settings.xml --file pom.xml
