@@ -21,13 +21,13 @@ jobs:
     steps:
     - name: Downloading Code
       uses: actions/checkout@v3
-      
+    
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-        
-    - name: Build and Deploy to CH with Maven
-      run: mvn -B clean deploy -DmuleDeploy -s settings.xml --file pom.xml 
+    - run:  |
+        echo "##vso[task.setvariable variable=POM_ARTIFACTID]$(mvn help:evaluate -Dexpression=project.artiffactId -q -DforceStdout)"
+        displayName: 'Get artifact id from pom.xml'
