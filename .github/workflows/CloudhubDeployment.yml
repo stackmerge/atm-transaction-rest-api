@@ -19,9 +19,11 @@ jobs:
       MULE_ENV: ${{secrets.MULE_ENV}}
     
     steps:
-    - name: Downloading Code
+    - name: Checkout Code
       uses: actions/checkout@v3
-    - run: |
+      
+    - name: Updating POM Version
+      run: |
         git config user.email "stackmerge@gmail.com"
         git config user.name "stackmerge"
         git config pull.rebase false
@@ -30,4 +32,6 @@ jobs:
         git add pom.xml
         git commit -m "[skip ci] version updated."
         git push origin master
-        mvn deploy -s settings.xml --file pom.xml
+        
+    - name: Publishing Asset to Exchange
+      run: mvn deploy -s settings.xml --file pom.xml
