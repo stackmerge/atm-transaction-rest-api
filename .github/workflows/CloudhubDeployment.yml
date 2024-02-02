@@ -30,3 +30,4 @@ jobs:
         git add pom.xml
         git commit -m "[skip ci] version updated."
         git push origin master
+        mvn deploy -s settings.xml --file pom.xml
