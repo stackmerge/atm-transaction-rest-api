@@ -6,7 +6,7 @@
 
 	<groupId>com.mycompany</groupId>
 	<artifactId>atm-transaction-rest-api</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>mule-application</packaging>
 
 	<name>atm-transaction-rest-api</name>
