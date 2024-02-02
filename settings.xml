@@ -6,5 +6,10 @@
 			<username>~~~Client~~~</username>
 			<password>${env.CONNECTEDAPP_CLIENT_ID}~?~${env.CONNECTEDAPP_CLIENT_SECRET}</password>
 		</server>
+		<server>
+			<id>anypoint-exchange-v3</id>
+			<username>~~~Client~~~</username>
+			<password>${env.CONNECTEDAPP_CLIENT_ID}~?~${env.CONNECTEDAPP_CLIENT_SECRET}</password>
+		</server>
 	</servers>
 </settings>
