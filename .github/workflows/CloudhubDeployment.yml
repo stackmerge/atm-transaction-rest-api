@@ -35,3 +35,6 @@ jobs:
         
     - name: Publishing Asset to Exchange
       run: mvn deploy -s settings.xml --file pom.xml
+      
+    - name: Deploying App to CloudHub 2.0
+      run: mvn deploy -DmuleDeploy -s settings.xml --file pom.xml      
