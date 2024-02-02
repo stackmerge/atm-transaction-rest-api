@@ -6,7 +6,7 @@
 
 	<groupId>fe00914c-6279-41b9-8a8d-3862f038b542</groupId>
 	<artifactId>atm-transaction-rest-api</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>mule-application</packaging>
 
 	<name>atm-transaction-rest-api</name>
@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>fe00914c-6279-41b9-8a8d-3862f038b542</groupId>
 			<artifactId>atm-transaction-rest-api</artifactId>
-			<version>1.0.2</version>
+			<version>1.0.3</version>
 			<classifier>raml</classifier>
 			<type>zip</type>
 		</dependency>
