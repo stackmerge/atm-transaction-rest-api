@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>fe00914c-6279-41b9-8a8d-3862f038b542</groupId>
-	<artifactId>atm-transaction-rest-api</artifactId>
+	<artifactId>atm-transaction-app</artifactId>
 	<version>1.0.3</version>
 	<packaging>mule-application</packaging>
 
