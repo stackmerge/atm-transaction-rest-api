@@ -6,7 +6,7 @@
 
 	<groupId>fe00914c-6279-41b9-8a8d-3862f038b542</groupId>
 	<artifactId>atm-transaction-app</artifactId>
-	<version>1.0.11</version>
+	<version>1.0.12</version>
 	<packaging>mule-application</packaging>
 
 	<name>atm-transaction-app</name>
