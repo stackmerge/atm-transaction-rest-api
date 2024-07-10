@@ -79,39 +79,6 @@ output application/json
         </ee:transform>
 	</flow>
 	<flow name="createAccountsFlow" doc:id="92cbb210-cc7a-46fb-a660-396a8073fc84" >
-		<!-- <os:retrieve doc:name="Retrieve" doc:id="ae5b4119-af35-494d-897a-c948ef0c4984" key="pk" objectStore="Object_store" target="pk">
-			<os:default-value ><![CDATA[1]]></os:default-value>
-		</os:retrieve>
-		<db:insert doc:name="Insert" doc:id="04c218c0-14ca-4c6b-b0e3-36bdf0587e46" config-ref="Database_Config">
-			<db:sql ><![CDATA[Insert into Bank_Transactions(pk,custName,bankName,accountType,branchName,custAccNum,atmPin,ifscCode,totalBalance,mailId,phoneNumber,transactionTimeStamp,accountStatus) values(:pk,:customerName,:bank,:accountType,:branchName,:accountNum,:atmPin,:ifscCode,:depositAmount,:mailId,:phoneNo,:transactionTimeStamp,"Active")]]></db:sql>
-			<db:input-parameters ><![CDATA[#[{
-	"pk": vars.pk,
-	"customerName": attributes.queryParams.customerName,
-	"bank": attributes.queryParams.bank,
-	"accountType": attributes.queryParams.accountType,
-	"branchName": attributes.queryParams.branchName,
-  "accountNum": payload.accountNum,
-  "atmPin": payload.atmPin,
-  "ifscCode": payload.ifscCode,
-  "depositAmount": payload.depositAmount,
-  "mailId": payload.mailId,
-  "phoneNo": payload.phoneNo,
-  "transactionTimeStamp": now() as String
-}]]]></db:input-parameters>
-		</db:insert>
-		<ee:transform doc:name="Transform Message">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  status: "Account Created Successfully with Account Number 1212000012"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
-		<os:store doc:name="Store" doc:id="66dddeb4-3962-4f69-8147-0511b17d4c3b" key="pk" objectStore="Object_store">
-			<os:value ><![CDATA[#[vars.pk + 1]]]></os:value>
-		</os:store> -->
 		<ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
