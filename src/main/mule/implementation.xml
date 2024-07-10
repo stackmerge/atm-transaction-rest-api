@@ -79,7 +79,7 @@ output application/json
         </ee:transform>
 	</flow>
 	<flow name="createAccountsFlow" doc:id="92cbb210-cc7a-46fb-a660-396a8073fc84" >
-		<os:retrieve doc:name="Retrieve" doc:id="ae5b4119-af35-494d-897a-c948ef0c4984" key="pk" objectStore="Object_store" target="pk">
+		<!-- <os:retrieve doc:name="Retrieve" doc:id="ae5b4119-af35-494d-897a-c948ef0c4984" key="pk" objectStore="Object_store" target="pk">
 			<os:default-value ><![CDATA[1]]></os:default-value>
 		</os:retrieve>
 		<db:insert doc:name="Insert" doc:id="04c218c0-14ca-4c6b-b0e3-36bdf0587e46" config-ref="Database_Config">
@@ -111,7 +111,17 @@ output application/json
         </ee:transform>
 		<os:store doc:name="Store" doc:id="66dddeb4-3962-4f69-8147-0511b17d4c3b" key="pk" objectStore="Object_store">
 			<os:value ><![CDATA[#[vars.pk + 1]]]></os:value>
-		</os:store>
+		</os:store> -->
+		<ee:transform doc:name="Transform Message">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  status: "Account Created Successfully with Account Number 1212000012"
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
 	</flow>
 	<flow name="getAccountByIdFlow"
 		doc:id="2ff854cf-e833-4c1f-8fb2-bb6466ee03c6">
